@@ -31,14 +31,20 @@ initCanvas = function() {
 }
 
 initBoard = function() {
+	//GET A REFERENCE OF A NEW BOARD 
 	board = new Board();
 	renderPieces();
 }
 
 initPlayer = function() {
+	//GET A REFERENCE OF THE PLAYER MANAGER
 	player = new PlayerManager();
+	document.getElementById('turn').textContent = 'BLACK';
 }
 
+//RENDER THE PIECES
+//KING: YELLOW CIRCLE INSIDE THE BLACK/WHITE CIRCLE
+//SELECTED PIECE: GREEN BORDER 
 renderPieces = function() {
 	for (i = 0; i < 8; i++) {
 		for (j = 0; j < 8; j++) {
@@ -116,12 +122,20 @@ renderPieces = function() {
 handleClick = function(row, col) {
 	var cell = board.matrix[row][col];
 	if (board.hasSelected()) {
+		//IF A PIECE IS SELECTED AND IT IS CLICKED AGAIN, DESELECT THE PIECE
 		if (cell == player.currentPlayer + 2 || cell == player.currentPlayer + 6) {
+			//IF IT IS A PIECE THAT HAS JUST JUMPED AND CAN JUMP AGAIN, IT DOES NOT DESELECT THE PIECE
 			if (!board.jumpAgain) {
 				board.deselectCell(row, col);
 			}
 		} else if (board.makeMove(row, col, player.currentPlayer)) {
 			player.changePlayer();
+
+			//CHANGE THE 'TURN' TEXT
+			if (player.currentPlayer == Piece.BLACK)
+				document.getElementById('turn').textContent = 'BLACK';
+			else
+				document.getElementById('turn').textContent = 'WHITE';
 		}
 	} else if (cell == player.currentPlayer || cell == player.currentPlayer + 4) {
 		board.selectCell(row, col);
@@ -130,6 +144,8 @@ handleClick = function(row, col) {
 	renderPieces();
 }
 
+//CREATE AN EVENT LISTENER FOR THE BOARD
+//GET THE POSITION/CELL CLICKED
 document.getElementById('board').addEventListener('click', function(event) {
 	var posX = event.clientX;
 	var posY = event.clientY;
