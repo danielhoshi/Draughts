@@ -1,0 +1,16 @@
+body{
+	margin:0;
+}
+
+#board {
+	position: absolute;
+	top: 0;
+	left: 0;
+	height: 600px;
+	width: 600px;	
+}
+
+#canvas-wrap {
+	position: relative;
+}
+
