@@ -11,4 +11,4 @@ You can find the rules of the Draughts game [here](https://simple.wikipedia.org/
 * You can reset the game by clicking on the button "Restart".
 
 ## DEMO
-You can check the demo [here](https://cdn.rawgit.com/danielhoshi/Draughts/master/index.html).
+You can check the demo [here](https://rawgit.com/danielhoshi/Draughts/master/index.html).
