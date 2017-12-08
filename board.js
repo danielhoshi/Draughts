@@ -137,6 +137,10 @@ window.Board = function() {
 			return false;
 		if (piece == Piece.WHITE && (newRow < row))
 			return false;
+		if (piece == Piece.SELECTED_BLACK && (newRow > row))
+			return false;
+		if (piece == Piece.SELECTED_WHITE && (newRow < row))
+			return false;
 
 		return true;
 	};
