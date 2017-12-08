@@ -1,6 +1,5 @@
 body{
 	margin:5px;
-	background-color: #E6D1D1;
 }
 
 #board {
@@ -21,4 +20,21 @@ body{
 	top: 100px;
 	font-family: verdana;
 	font-size: 30px;
+	border-style: solid;
+	border-width: 5px;
+	width: 300px;
+	height: 150px;
+	text-align: center;
+	display: inline-flex;
+	background-color: #C4C4C4;
+}
+
+#msgsContent{
+	margin: auto;
+}
+
+#btnRestart{
+	height: 35px;
+	font-family: verdana;
+	font-weight: bold;	
 }

@@ -153,3 +153,7 @@ document.getElementById('board').addEventListener('click', function(event) {
 	var col = Math.floor(posX / 75);
 	handleClick(row, col);
 });
+
+document.getElementById('btnRestart').addEventListener('click', function(event){
+	window.location.reload();
+});
